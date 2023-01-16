@@ -1,0 +1,62 @@
+package Test;
+import java.util.Random;
+import java.util.*;
+public class Adanigroup {
+
+	public static int[][] func(int row, int col){
+		
+		int[][]arr = new int[row][col];
+		Random rd = new Random(); // creating Random object
+		for( int i =0; i<row; i++) {
+			for(int j=0; j<col; j++) {
+				arr[i][j]=rd.nextInt(101);
+		}
+		}
+		
+		return arr;
+	}
+	
+	   public static int[][] sortarr(int arr[][], int col)
+	    {
+	        
+	        Arrays.sort(arr, new Comparator<int[]>() {
+	            
+	          @Override              
+	          public int compare(final int[] e1, final int[] e2) {
+	  
+	            if (e1[col] > e2[col])
+	                return 1;
+	            else
+	                return -1;
+	          }
+	        });  
+	        
+	        return arr;
+	    }
+	   
+	  public static void print(int arr[][]) {
+		  for( int i=0; i<arr.length; i++) {
+			  for(int j=0; j<arr[i].length;j++) {
+				  System.out.print(arr[i][j]+" ");
+			  }
+			  System.out.println();
+		  }
+	  }
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter row number and column number");
+		int r= s.nextInt();
+		int c= s.nextInt();
+		int[][]arr=func(r,c);
+		print(arr);
+		System.out.println("Enter column number for sorting");
+		int n=s.nextInt();
+		int[][] arr1= sortarr(arr,n-1 );
+		System.out.println("Array after sorting");
+		print(arr1);
+		
+		
+	}
+
+}
